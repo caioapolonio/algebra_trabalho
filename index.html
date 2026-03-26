@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álgebra Linear - T168 UNIFOR</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Álgebra Linear</h1>
+    <p class="subtitle">T168 - Álgebra e Geometria Computacional | UNIFOR</p>
+  </header>
+
+  <main>
+    <section class="control-panel">
+      <label for="operacao">Operação:</label>
+      <select id="operacao">
+        <option value="">-- Selecione --</option>
+        <option value="transpose">Transposta</option>
+        <option value="sum">Soma</option>
+        <option value="times">Multiplicação</option>
+        <option value="gauss">Eliminação Gaussiana</option>
+        <option value="solve">Resolver Sistema Linear</option>
+      </select>
+    </section>
+
+    <!-- Entrada A -->
+    <section id="input-a" class="input-section" style="display:none;">
+      <h2>Entrada A</h2>
+      <div class="type-selector">
+        <label for="tipo-a">Tipo:</label>
+        <select id="tipo-a">
+          <option value="matrix">Matriz</option>
+          <option value="vector">Vetor</option>
+        </select>
+      </div>
+      <div id="dims-a" class="dims">
+        <label>Linhas: <input type="number" id="rows-a" min="1" value="2"></label>
+        <label>Colunas: <input type="number" id="cols-a" min="1" value="2"></label>
+      </div>
+      <button id="gerar-a" class="btn btn-gerar">Gerar Grid</button>
+      <div id="grid-a" class="grid-container"></div>
+    </section>
+
+    <!-- Entrada B -->
+    <section id="input-b" class="input-section" style="display:none;">
+      <h2>Entrada B</h2>
+      <div class="type-selector">
+        <label for="tipo-b">Tipo:</label>
+        <select id="tipo-b">
+          <option value="matrix">Matriz</option>
+          <option value="vector">Vetor</option>
+          <option value="escalar">Escalar</option>
+        </select>
+      </div>
+      <div id="dims-b" class="dims">
+        <label>Linhas: <input type="number" id="rows-b" min="1" value="2"></label>
+        <label>Colunas: <input type="number" id="cols-b" min="1" value="2"></label>
+      </div>
+      <button id="gerar-b" class="btn btn-gerar">Gerar Grid</button>
+      <div id="grid-b" class="grid-container"></div>
+    </section>
+
+    <section id="acoes" style="display:none;">
+      <button id="calcular" class="btn btn-calcular">Calcular</button>
+    </section>
+
+    <!-- Exemplos -->
+    <section id="exemplos" style="display:none;">
+      <h2>Exemplos Prontos</h2>
+      <div class="exemplos-btns"></div>
+    </section>
+
+    <!-- Resultado -->
+    <section id="resultado" style="display:none;">
+      <h2>Resultado</h2>
+      <div id="resultado-conteudo"></div>
+    </section>
+
+    <!-- Erro -->
+    <section id="erro" style="display:none;">
+      <div id="erro-conteudo" class="erro-msg"></div>
+    </section>
+  </main>
+
+  <script src="js/Matrix.js"></script>
+  <script src="js/Vector.js"></script>
+  <script src="js/LinearAlgebra.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
