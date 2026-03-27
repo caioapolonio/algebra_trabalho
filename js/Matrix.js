@@ -26,12 +26,12 @@ class Matrix {
 
     this.rows = rows
     this.cols = cols
-    // copia o array pra evitar que mudanças externas afetem a matriz
+    // copia o array
     this.elements = [...elements]
   }
 
   // retorna o valor na posição (i, j) da matriz
-  // usa a fórmula: índice = i * colunas + j
+
   get(i, j) {
     if (i < 0 || i >= this.rows) {
       throw new Error(
@@ -76,20 +76,6 @@ class Matrix {
       row.push(this.get(i, j))
     }
     return row
-  }
-
-  // substitui a linha i pelos valores do array
-  setRow(i, arr) {
-    for (let j = 0; j < this.cols; j++) {
-      this.set(i, j, arr[j])
-    }
-  }
-
-  // troca duas linhas da matriz entre si (usado na eliminação gaussiana)
-  swapRows(i1, i2) {
-    const temp = this.getRow(i1)
-    this.setRow(i1, this.getRow(i2))
-    this.setRow(i2, temp)
   }
 
   // retorna a matriz formatada como texto

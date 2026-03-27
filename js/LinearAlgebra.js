@@ -5,8 +5,7 @@
 //   la.transpose(matriz);
 //   la.sum(matrizA, matrizB);
 //   la.times(2, matriz);
-//   la.gauss(matriz);
-//   la.solve(matrizAumentada);
+
 class LinearAlgebra {
   // retorna a transposta de uma matriz ou vetor
   // transposta = troca linhas por colunas, o elemento (i, j) vai pra (j, i)
