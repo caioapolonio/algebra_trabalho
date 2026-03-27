@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     transpose: { inputs: 1, tiposA: ["matrix", "vector"], label: "Transposta" },
     sum: { inputs: 2, tiposA: ["matrix", "vector"], tiposB: ["matrix", "vector"], label: "Soma" },
     times: { inputs: 2, tiposA: ["matrix", "vector"], tiposB: ["matrix", "vector", "escalar"], label: "Multiplicação" },
-    gauss: { inputs: 1, tiposA: ["matrix"], label: "Eliminação Gaussiana" },
-    solve: { inputs: 1, tiposA: ["matrix"], label: "Resolver Sistema" },
   };
 
   // Exemplos prontos para facilitar a demonstração
@@ -49,14 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       { nome: "Matrizes 2x2", a: { tipo: "matrix", rows: 2, cols: 2, vals: [1,2,3,4] }, b: { tipo: "matrix", rows: 2, cols: 2, vals: [5,6,7,8] } },
       { nome: "Escalar x Matriz", a: { tipo: "matrix", rows: 2, cols: 2, vals: [1,2,3,4] }, b: { tipo: "escalar", vals: [3] } },
       { nome: "Produto Escalar", a: { tipo: "vector", rows: 3, cols: 1, vals: [1,2,3] }, b: { tipo: "vector", rows: 3, cols: 1, vals: [4,5,6] } },
-    ],
-    gauss: [
-      { nome: "Matriz 3x3", a: { tipo: "matrix", rows: 3, cols: 3, vals: [2,1,-1,4,5,-3,6,-2,1] } },
-      { nome: "Com pivô zero", a: { tipo: "matrix", rows: 3, cols: 3, vals: [0,1,2,1,0,3,4,5,6] } },
-    ],
-    solve: [
-      { nome: "Sistema 2x2 (x+y=3, 2x-y=0)", a: { tipo: "matrix", rows: 2, cols: 3, vals: [1,1,3,2,-1,0] } },
-      { nome: "Sistema 3x3", a: { tipo: "matrix", rows: 3, cols: 4, vals: [2,1,-1,8,-3,-1,2,-11,-2,1,2,-3] } },
     ],
   };
 
@@ -196,19 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       divResultado.appendChild(wrapper);
 
-      // Para o solve, mostra a solução de cada variável
-      const op = selOperacao.value;
-      if (op === "solve") {
-        const solDiv = document.createElement("div");
-        solDiv.className = "solucao-lista";
-        const n = res.rows;
-        let html = "<p><strong>Solução:</strong></p>";
-        for (let i = 0; i < n; i++) {
-          html += `<p>x<sub>${i + 1}</sub> = ${arredondar(res.get(i, res.cols - 1))}</p>`;
-        }
-        solDiv.innerHTML = html;
-        divResultado.appendChild(solDiv);
-      }
     }
   }
 
@@ -350,10 +327,6 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           resultado = la.times(a, b);
         }
-      } else if (op === "gauss") {
-        resultado = la.gauss(a);
-      } else if (op === "solve") {
-        resultado = la.solve(a);
       }
 
       mostrarResultadoFinal(resultado);
